@@ -1,0 +1,40 @@
+﻿@using BONTONUI.Utility
+@using Microsoft.Extensions.Options
+@inject IOptions<AppSettings> AppConfig
+@{
+    Layout = "_LandingPageLayout";
+    ViewData["Title"] = "Home Page";
+}
+
+<div data-bs-spy="scroll" class="scrollspy-example">
+    <!-- Top Bar -->
+    <div class="w-100 bg-white border-bottom text-center position-fixed top-0 start-0 z-3 py-2 px-3 shadow-sm">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
+                <img src="@AppConfig.Value.IconPath" alt="@AppConfig.Value.AppName Logo" style="height: 40px;">
+            </div>
+            <div class="flex-grow-1 text-center">
+                <strong class="text-primary">@AppConfig.Value.AppName</strong>
+            </div>
+            <div style="width: 40px;"></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light text-center px-3">
+        <div class="container position-relative z-2 mt-5 pt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold text-dark mb-3">@AppConfig.Value.AppName</h1>
+                    <p class="lead text-muted mb-4">BONTON Keeps you safe when you are at home.</p>
+                    <a href="/Auth/Login" class="btn btn-primary btn-lg px-4 py-2">Login to Portal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-100 py-3 bg-white border-top text-center text-muted position-fixed bottom-0 start-0 z-3">
+        <small>© 2025 @AppConfig.Value.AppName . All rights reserved.</small>
+    </footer>
+</div>
